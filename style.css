@@ -12,6 +12,13 @@
             justify-content: center;
             padding: 20px;
             transition: background 0.7s ease;
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
         }
 
         body.focus {
@@ -49,6 +56,20 @@
             padding: 40px;
         }
 
+        @media (max-width: 768px) {
+            .card {
+                padding: 24px;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px;
+                border-radius: 16px;
+            }
+        }
+
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -63,6 +84,18 @@
             font-weight: bold;
             color: #374151;
             margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .mode-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mode-title {
+                font-size: 18px;
+            }
         }
 
         .mode-icon {
@@ -80,6 +113,22 @@
             width: 300px;
             height: 300px;
             margin: 0 auto 40px;
+        }
+
+        @media (max-width: 768px) {
+            .timer-container {
+                width: 260px;
+                height: 260px;
+                margin: 0 auto 32px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer-container {
+                width: 220px;
+                height: 220px;
+                margin: 0 auto 24px;
+            }
         }
 
         .timer-circle {
@@ -124,6 +173,18 @@
             font-variant-numeric: tabular-nums;
         }
 
+        @media (max-width: 768px) {
+            .timer-text {
+                font-size: 52px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .timer-text {
+                font-size: 44px;
+            }
+        }
+
         .controls {
             display: flex;
             gap: 16px;
@@ -143,6 +204,13 @@
             gap: 8px;
             transition: all 0.2s;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 480px) {
+            .btn {
+                padding: 14px 20px;
+                font-size: 14px;
+            }
         }
 
         .btn:hover {
@@ -204,6 +272,21 @@
             color: #6b7280;
         }
 
+        @media (max-width: 768px) {
+            .mode-btn {
+                padding: 12px;
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mode-btn {
+                padding: 10px;
+                font-size: 10px;
+                gap: 4px;
+            }
+        }
+
         .mode-btn:hover {
             background: #e5e7eb;
         }
@@ -232,6 +315,20 @@
             padding-top: 30px;
             border-top: 1px solid #e5e7eb;
             margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .progress-dots {
+                gap: 12px;
+                padding-top: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .progress-dots {
+                gap: 10px;
+                padding-top: 20px;
+            }
         }
 
         .dot {
