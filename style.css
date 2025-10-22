@@ -1,0 +1,257 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            transition: background 0.7s ease;
+        }
+
+        body.focus {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+        }
+
+        body.shortBreak {
+            background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+        }
+
+        body.longBreak {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2px);
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .mode-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+
+        .mode-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .pomodoros-count {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .timer-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto 40px;
+        }
+
+        .timer-circle {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #e5e7eb;
+            stroke-width: 12;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke-width: 12;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 1s linear;
+        }
+
+        .focus .circle-progress {
+            stroke: url(#gradient-focus);
+        }
+
+        .shortBreak .circle-progress {
+            stroke: url(#gradient-short);
+        }
+
+        .longBreak .circle-progress {
+            stroke: url(#gradient-long);
+        }
+
+        .timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            font-weight: bold;
+            color: #1f2937;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .controls {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 12px;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-primary {
+            flex: 1;
+            color: white;
+        }
+
+        .focus .btn-primary {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+        }
+
+        .shortBreak .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+        }
+
+        .longBreak .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+
+        .btn-reset {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 16px;
+        }
+
+        .btn-reset:hover {
+            background: #d1d5db;
+        }
+
+        .mode-switcher {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .mode-btn {
+            border: none;
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .mode-btn:hover {
+            background: #e5e7eb;
+        }
+
+        .mode-btn.active {
+            color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .mode-btn.active.focus-btn {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+        }
+
+        .mode-btn.active.short-btn {
+            background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+        }
+
+        .mode-btn.active.long-btn {
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+        }
+
+        .progress-dots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+            margin-bottom: 16px;
+        }
+
+        .dot {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            background: #e5e7eb;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: linear-gradient(135deg, #f43f5e 0%, #ec4899 100%);
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 12px;
+            color: #6b7280;
+        }
+
+        .icon {
+            width: 20px;
+            height: 20px;
+        }
